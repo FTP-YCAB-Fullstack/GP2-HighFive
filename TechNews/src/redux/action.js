@@ -7,8 +7,6 @@ let setDataArticles = () => {
   return async dispatch => {
     let { data } = await axios.get(urlNewsAPI);
 
-    console.log(data);
-
     dispatch({
       type: "SET_DATA_ARTICLES",
       payload: {
