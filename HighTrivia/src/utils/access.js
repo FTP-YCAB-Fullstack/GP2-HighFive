@@ -1,14 +1,15 @@
 let access = {
   isLogin() {
-    let user = JSON.parse(localStorage.getItem("access"));
-    if (
-      user != null &&
-      user.username === "admin" &&
-      user.password === "admin"
-    ) {
-      return true;
-    }
-    return false;
+    // let user = JSON.parse(localStorage.getItem("access"));
+    // if (
+    //   user != null &&
+    //   user.username === "admin" &&
+    //   user.password === "admin"
+    // ) {
+    //   return true;
+    // }
+    // return false;
+    return true;
   },
   setLogin() {
     let user = { username: "admin", password: "admin" };
