@@ -2,7 +2,6 @@ import React from "react";
 import { Route } from "react-router-dom";
 import access from "../utils/access";
 import Home from "../pages/Home";
-import { useSelector } from "react-redux";
 import Question from "../pages/Question";
 
 function PrivateRoute({ component: Component, isQuiz: IsQuiz, ...rest }) {

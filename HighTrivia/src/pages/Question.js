@@ -7,7 +7,9 @@ import {
   Redirect,
   useHistory
 } from "react-router-dom";
-import { useSelector } from "react-redux";
+import { useSelector, useDispatch } from "react-redux";
+import { setResult } from "../redux/action";
+import Result from "./Result";
 
 function Question() {
   return (
@@ -27,20 +29,22 @@ function Question() {
 
 function Quiz() {
   const history = useHistory();
+  const dispatch = useDispatch();
+  const { id } = useParams();
+  const data = useSelector(state => state.math.medium);
+
   const onClickOption = (event, correct_answer) => {
-    console.log(event.target.innerText, correct_answer);
     if (event.target.innerText === correct_answer) {
       alert("Anda Benar");
     } else {
       alert("Anda Salah");
     }
+    dispatch(setResult(event.target.innerText === correct_answer));
     history.replace({
       pathname: `/question/${Number(id) + 1}`
     });
   };
 
-  const { id } = useParams();
-  const data = useSelector(state => state.math.medium);
   if (Number(id) < data.length || data[0] === undefined) {
     let quiz = {};
     let options = [];
@@ -71,7 +75,7 @@ function Quiz() {
       </>
     );
   }
-  return <h1>404 Not Found</h1>;
+  return <Result />;
 }
 
 export default Question;
