@@ -1,7 +1,11 @@
-import React from "react";
+import React, { useEffect } from "react";
 
 function Home() {
-  return <h1>Home</h1>;
+  useEffect(() => {
+    console.log(2);
+  });
+
+  return <h1>Home{console.log(1)}</h1>;
 }
 
 export default Home;

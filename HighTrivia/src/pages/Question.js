@@ -1,10 +1,32 @@
 import React from "react";
-import { useSelector } from "react-redux";
 import { shuffleArray } from "../utils/array";
+import {
+  useParams,
+  Route,
+  Switch,
+  Redirect,
+  useHistory
+} from "react-router-dom";
+import { useSelector } from "react-redux";
 
 function Question() {
-  const mathData = useSelector(state => state.math.medium);
+  return (
+    <>
+      <h1>Username</h1>
+      <Switch>
+        <Route path="/question/:id">
+          <Quiz />
+        </Route>
+        <Route path="/question">
+          <Redirect to="/question/0" />
+        </Route>
+      </Switch>
+    </>
+  );
+}
 
+function Quiz() {
+  const history = useHistory();
   const onClickOption = (event, correct_answer) => {
     console.log(event.target.innerText, correct_answer);
     if (event.target.innerText === correct_answer) {
@@ -12,32 +34,44 @@ function Question() {
     } else {
       alert("Anda Salah");
     }
+    history.replace({
+      pathname: `/question/${Number(id) + 1}`
+    });
   };
 
-  return (
-    <>
-      {mathData.map(item => {
-        const options = shuffleArray([
-          ...item.incorrect_answers,
-          item.correct_answer
-        ]);
-        return (
-          <div>
-            <h1>{item.question}</h1>
-            {options.map(itemOptions => {
+  const { id } = useParams();
+  const data = useSelector(state => state.math.medium);
+  if (Number(id) < data.length || data[0] === undefined) {
+    let quiz = {};
+    let options = [];
+    if (data[0] !== undefined) {
+      quiz = data[Number(id)];
+      options = shuffleArray([...quiz.incorrect_answers, quiz.correct_answer]);
+    }
+
+    return (
+      <>
+        {data[0] !== undefined ? (
+          <>
+            <h2>{quiz.question}</h2>
+            {options.map((itemOptions, index) => {
               return (
                 <button
-                  onClick={event => onClickOption(event, item.correct_answer)}
+                  onClick={event => onClickOption(event, quiz.correct_answer)}
+                  key={index}
                 >
                   {itemOptions}
                 </button>
               );
             })}
-          </div>
-        );
-      })}
-    </>
-  );
+          </>
+        ) : (
+          <h1>Waiting</h1>
+        )}
+      </>
+    );
+  }
+  return <h1>404 Not Found</h1>;
 }
 
 export default Question;
