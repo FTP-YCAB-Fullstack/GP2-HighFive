@@ -13,7 +13,10 @@ import { setResult } from "../redux/action";
 function Question() {
   return (
     <>
-      <h1>Username</h1>
+      <nav className="flex justify-between bg-red-700 p-3 absolute top-0 z-50 w-full">
+        <span>MAWAR MELATI</span>
+      </nav>
+
       <Switch>
         <Route path="/question/:id">
           <Quiz />
