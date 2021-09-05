@@ -10,6 +10,7 @@ function Quiz() {
   const dispatch = useDispatch();
   const { id } = useParams();
   const data = useSelector(state => state.math.medium);
+  const isViaHome = useSelector(state => state.viaHome);
 
   const onClickOption = (event, correct_answer) => {
     if (event.target.innerText === correct_answer) {
@@ -30,28 +31,34 @@ function Quiz() {
     }
   };
 
-  if (Number(id) < data.length || data[0] === undefined) {
-    let quiz = {};
-    let options = [];
-    if (data[0] !== undefined) {
-      quiz = data[Number(id)];
-      options = shuffleArray([...quiz.incorrect_answers, quiz.correct_answer]);
-    }
+  if (isViaHome) {
+    if (Number(id) < data.length || data[0] === undefined) {
+      let quiz = {};
+      let options = [];
+      if (data[0] !== undefined) {
+        quiz = data[Number(id)];
+        options = shuffleArray([
+          ...quiz.incorrect_answers,
+          quiz.correct_answer
+        ]);
+      }
 
-    return (
-      <div>
-        {data[0] !== undefined ? (
-          <BoxQuiz
-            quiz={quiz}
-            options={options}
-            onClickOption={onClickOption}
-          />
-        ) : (
-          <h1>Waiting</h1>
-        )}
-      </div>
-    );
+      return (
+        <div>
+          {data[0] !== undefined ? (
+            <BoxQuiz
+              quiz={quiz}
+              options={options}
+              onClickOption={onClickOption}
+            />
+          ) : (
+            <h1>Waiting</h1>
+          )}
+        </div>
+      );
+    }
   }
+
   return <h1>404 Not Found</h1>;
 }
 

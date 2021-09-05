@@ -5,12 +5,14 @@ import reducerAnimeManga from "./reducer/reducerAnimeManga";
 import reducerMath from "./reducer/reducerMath";
 import reducerVideoGames from "./reducer/reducerVideoGames";
 import reducerResult from "./reducer/reducerResult";
+import reducerPathToQuizViaHome from "./reducer/reducerPathToQuizViaHome";
 
 let combineReducer = combineReducers({
   animeManga: reducerAnimeManga,
   math: reducerMath,
   videoGames: reducerVideoGames,
-  result: reducerResult
+  result: reducerResult,
+  viaHome: reducerPathToQuizViaHome
 });
 
 let store = createStore(combineReducer, applyMiddleware(thunk));
