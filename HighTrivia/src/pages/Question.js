@@ -9,7 +9,6 @@ import {
 } from "react-router-dom";
 import { useSelector, useDispatch } from "react-redux";
 import { setResult } from "../redux/action";
-import Result from "./Result";
 
 function Question() {
   return (
@@ -40,9 +39,15 @@ function Quiz() {
       alert("Anda Salah");
     }
     dispatch(setResult(event.target.innerText === correct_answer));
-    history.replace({
-      pathname: `/question/${Number(id) + 1}`
-    });
+    if (Number(id) < data.length) {
+      history.replace({
+        pathname: `/question/${Number(id) + 1}`
+      });
+    } else {
+      history.replace({
+        pathname: "/result"
+      });
+    }
   };
 
   if (Number(id) < data.length || data[0] === undefined) {
@@ -75,7 +80,7 @@ function Quiz() {
       </>
     );
   }
-  return <Result />;
+  return <h1>404 Not Found</h1>;
 }
 
 export default Question;
