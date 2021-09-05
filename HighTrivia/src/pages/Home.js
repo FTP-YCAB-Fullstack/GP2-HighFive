@@ -1,12 +1,13 @@
 import React, { useState } from "react";
 import access from "../utils/access";
 import { useDispatch } from "react-redux";
-import { setViaHome } from "../redux/action";
+import { setViaHome, resetResult } from "../redux/action";
 
 function Home(props) {
   console.log(props);
   const [isLogin, setLogin] = useState(access.isLogin());
   const dispatch = useDispatch();
+  dispatch(resetResult());
 
   const onClickLoginAndLogut = () => {
     if (access.isLogin()) {
