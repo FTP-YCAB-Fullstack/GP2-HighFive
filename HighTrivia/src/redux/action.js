@@ -68,4 +68,13 @@ const resetResult = () => {
   };
 };
 
-export { setData, setResult, resetResult };
+const setViaHome = isViaHome => {
+  return dispatch => {
+    dispatch({
+      type: "SET_VIA_HOME",
+      payload: isViaHome
+    });
+  };
+};
+
+export { setData, setResult, resetResult, setViaHome };

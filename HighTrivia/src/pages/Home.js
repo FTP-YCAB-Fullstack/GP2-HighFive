@@ -1,9 +1,13 @@
 import React, { useState } from "react";
 import access from "../utils/access";
+import { useDispatch } from "react-redux";
+import { setViaHome, resetResult } from "../redux/action";
 
 function Home(props) {
   console.log(props);
   const [isLogin, setLogin] = useState(access.isLogin());
+  const dispatch = useDispatch();
+  dispatch(resetResult());
 
   const onClickLoginAndLogut = () => {
     if (access.isLogin()) {
@@ -18,8 +22,10 @@ function Home(props) {
   };
 
   const onClickStart = () => {
+    dispatch(setViaHome(true));
     props.history.push({
-      pathname: "/question"
+      pathname: "/question",
+      state: true
     });
   };
 
