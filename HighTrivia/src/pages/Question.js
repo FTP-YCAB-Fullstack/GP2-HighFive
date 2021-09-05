@@ -12,8 +12,8 @@ import { setResult } from "../redux/action";
 
 function Question() {
   return (
-    <>
-      <nav className="flex justify-between bg-red-700 p-3 absolute top-0 z-50 w-full">
+    <div className="flex flex-col">
+      <nav className="flex justify-between bg-red-700 p-3  w-full">
         <span>MAWAR MELATI</span>
       </nav>
 
@@ -25,7 +25,7 @@ function Question() {
           <Redirect to="/question/0" />
         </Route>
       </Switch>
-    </>
+    </div>
   );
 }
 
@@ -42,13 +42,14 @@ function Quiz() {
       alert("Anda Salah");
     }
     dispatch(setResult(event.target.innerText === correct_answer));
-    if (Number(id) < data.length) {
+    if (Number(id) < 5) {
       history.replace({
         pathname: `/question/${Number(id) + 1}`
       });
     } else {
       history.replace({
-        pathname: "/result"
+        pathname: "/result",
+        state: true
       });
     }
   };
@@ -62,13 +63,14 @@ function Quiz() {
     }
 
     return (
-      <>
+      <div>
         {data[0] !== undefined ? (
           <>
             <h2>{quiz.question}</h2>
             {options.map((itemOptions, index) => {
               return (
                 <button
+                  className="mx-2 border-2"
                   onClick={event => onClickOption(event, quiz.correct_answer)}
                   key={index}
                 >
@@ -80,7 +82,7 @@ function Quiz() {
         ) : (
           <h1>Waiting</h1>
         )}
-      </>
+      </div>
     );
   }
   return <h1>404 Not Found</h1>;

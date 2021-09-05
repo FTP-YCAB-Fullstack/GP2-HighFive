@@ -3,6 +3,7 @@ import { Route } from "react-router-dom";
 import access from "../utils/access";
 import Home from "../pages/Home";
 import Question from "../pages/Question";
+import Login from "../pages/Login";
 
 function PrivateRoute({ component: Component, isQuiz: IsQuiz, ...rest }) {
   return (
@@ -11,12 +12,13 @@ function PrivateRoute({ component: Component, isQuiz: IsQuiz, ...rest }) {
       render={props => {
         if (access.isLogin()) {
           if (IsQuiz) {
-            return <Question />;
+            return <Question {...props} />;
           } else {
             return <Component {...props} />;
           }
         } else {
-          return <Home />;
+          alert("Mohon Login terlebih dahulu");
+          return <Login {...props} />;
         }
       }}
     />
@@ -32,7 +34,11 @@ function PublicRoute({
     <Route
       {...rest}
       render={props =>
-        access.isLogin() && OnlyPublic ? <Home /> : <Component {...props} />
+        access.isLogin() && OnlyPublic ? (
+          <Home {...props} />
+        ) : (
+          <Component {...props} />
+        )
       }
     />
   );
