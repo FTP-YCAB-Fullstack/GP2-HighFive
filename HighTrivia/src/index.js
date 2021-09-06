@@ -15,7 +15,7 @@ ReactDOM.render(
       <Switch>
         <PublicRoute onlyPublic={false} exact path="/" component={Home} />
         <PublicRoute onlyPublic={true} exact path="/login" component={Login} />
-        <PrivateRoute exact path="/question" component={Question} />
+        <PrivateRoute path="/question/" component={Question} />
         <PrivateRoute exact path="/result" component={Result} />
         <PublicRoute onlyPublic={false} exact path="*">
           <h1>404 Page Not Found</h1>

@@ -1,6 +1,6 @@
 import React from 'react'
 
-function Navigation () {
+function Homepage () {
     return(
         <>
             <nav className="flex justify-between bg-gray-400 p-3 absolute top-0 z-50 w-full">
@@ -26,4 +26,4 @@ function Navigation () {
     )
 }
 
-export default Navigation
+export default Homepage

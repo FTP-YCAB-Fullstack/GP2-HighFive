@@ -10,9 +10,15 @@ let access = {
     }
     return false;
   },
-  setLogin() {
-    let user = { username: "admin", password: "admin" };
-    localStorage.setItem("access", JSON.stringify(user));
+  setLogin(username, password) {
+    if (username === "admin" && password === "admin") {
+      let user = { username: username, password: password };
+      localStorage.setItem("access", JSON.stringify(user));
+      alert("Anda berhasil Login");
+      return true;
+    }
+    alert("Anda gagal Login");
+    return false;
   },
   getLogout() {
     localStorage.clear();
