@@ -13,7 +13,7 @@ const urlVideoGamesMediumAPI =
 const urlVideoGamesHardAPI =
   "https://opentdb.com/api.php?amount=15&category=15&difficulty=hard";
 
-let setData = () => {
+const setData = () => {
   return async dispatch => {
     let data = [
       [
@@ -48,4 +48,33 @@ let setData = () => {
   };
 };
 
-export default setData;
+const setResult = answer => {
+  return (dispatch, getState) => {
+    dispatch({
+      type: "SET_RESULT",
+      payload: {
+        answer: answer
+      }
+    });
+    console.log(getState());
+  };
+};
+
+const resetResult = () => {
+  return dispatch => {
+    dispatch({
+      type: "RESET_RESULT"
+    });
+  };
+};
+
+const setViaHome = isViaHome => {
+  return dispatch => {
+    dispatch({
+      type: "SET_VIA_HOME",
+      payload: isViaHome
+    });
+  };
+};
+
+export { setData, setResult, resetResult, setViaHome };

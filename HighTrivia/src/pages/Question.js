@@ -1,7 +1,24 @@
 import React from "react";
+import { Route, Switch, Redirect } from "react-router-dom";
+import Quiz from "../components/Quiz";
 
 function Question() {
-  return <h1>Question</h1>;
+  return (
+    <div className="flex flex-col">
+      <nav className="flex justify-between bg-red-700 p-3  w-full">
+        <span>MAWAR MELATI</span>
+      </nav>
+
+      <Switch>
+        <Route path="/question/:id">
+          <Quiz />
+        </Route>
+        <Route path="/question">
+          <Redirect to="/question/0" />
+        </Route>
+      </Switch>
+    </div>
+  );
 }
 
 export default Question;
