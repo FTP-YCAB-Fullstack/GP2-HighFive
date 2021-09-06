@@ -2,7 +2,7 @@ let access = {
   isLogin() {
     let user = JSON.parse(localStorage.getItem("access"));
     if (
-      user != null &&
+      user !== null &&
       user.username === "admin" &&
       user.password === "admin"
     ) {

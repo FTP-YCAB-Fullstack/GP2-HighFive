@@ -24,7 +24,7 @@ function Result(props) {
       {props.location.state && result.answers.length > 0 ? (
         <>
           <h1>Selamat Anda Mendapatkan Nilai</h1>
-          <h2>{result.score}</h2>
+          <h2>{Math.floor(result.score)}</h2>
         </>
       ) : (
         <h1>Tolong lakukan Quiz terlebih dahulu</h1>

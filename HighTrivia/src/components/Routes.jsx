@@ -2,20 +2,15 @@ import React from "react";
 import { Route } from "react-router-dom";
 import access from "../utils/access";
 import Home from "../pages/Home";
-import Question from "../pages/Question";
 import Login from "../pages/Login";
 
-function PrivateRoute({ component: Component, isQuiz: IsQuiz, ...rest }) {
+function PrivateRoute({ component: Component, ...rest }) {
   return (
     <Route
       {...rest}
       render={props => {
         if (access.isLogin()) {
-          if (IsQuiz) {
-            return <Question {...props} />;
-          } else {
-            return <Component {...props} />;
-          }
+          return <Component {...props} />;
         } else {
           alert("Mohon Login terlebih dahulu");
           return <Login {...props} />;

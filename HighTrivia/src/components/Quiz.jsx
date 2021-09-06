@@ -12,6 +12,13 @@ function Quiz() {
   const data = useSelector(state => state.math.medium);
   const isViaHome = useSelector(state => state.viaHome);
 
+  window.onpopstate = () => {
+    // if (window.confirm("Apakah anda yakin?")) {
+    //   history.replace("/");
+    // } else window.history.forward();
+    history.replace("/");
+  };
+
   const onClickOption = (event, correct_answer) => {
     if (event.target.innerText === correct_answer) {
       alert("Anda Benar");
@@ -32,31 +39,26 @@ function Quiz() {
   };
 
   if (isViaHome) {
-    if (Number(id) < data.length || data[0] === undefined) {
-      let quiz = {};
-      let options = [];
-      if (data[0] !== undefined) {
-        quiz = data[Number(id)];
-        options = shuffleArray([
-          ...quiz.incorrect_answers,
-          quiz.correct_answer
-        ]);
-      }
-
-      return (
-        <div>
-          {data[0] !== undefined ? (
-            <BoxQuiz
-              quiz={quiz}
-              options={options}
-              onClickOption={onClickOption}
-            />
-          ) : (
-            <h1>Waiting</h1>
-          )}
-        </div>
-      );
+    let quiz = {};
+    let options = [];
+    if (data[0] !== undefined) {
+      quiz = data[Number(id)];
+      options = shuffleArray([...quiz.incorrect_answers, quiz.correct_answer]);
     }
+
+    return (
+      <div>
+        {data[0] !== undefined ? (
+          <BoxQuiz
+            quiz={quiz}
+            options={options}
+            onClickOption={onClickOption}
+          />
+        ) : (
+          <h1>Waiting</h1>
+        )}
+      </div>
+    );
   }
 
   return <h1>404 Not Found</h1>;
