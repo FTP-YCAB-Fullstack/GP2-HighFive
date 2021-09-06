@@ -9,7 +9,8 @@ function Quiz() {
   const history = useHistory();
   const dispatch = useDispatch();
   const { id } = useParams();
-  const data = useSelector(state => state.math.medium);
+  const data = useSelector(state => state.quiz);
+  console.log(data);
   const isViaHome = useSelector(state => state.viaHome);
 
   window.onpopstate = () => {
@@ -26,7 +27,7 @@ function Quiz() {
       alert("Anda Salah");
     }
     dispatch(setResult(event.target.innerText === correct_answer));
-    if (Number(id) < 5) {
+    if (Number(id) + 1 < data.length) {
       history.replace({
         pathname: `/question/${Number(id) + 1}`
       });
