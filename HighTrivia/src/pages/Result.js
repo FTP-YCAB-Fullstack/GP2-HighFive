@@ -23,8 +23,10 @@ function Result(props) {
     <>
       {props.location.state && result.answers.length > 0 ? (
         <>
+        <div>
           <h1>Selamat Anda Mendapatkan Nilai</h1>
           <h2>{result.score}</h2>
+        </div>
         </>
       ) : (
         <h1>Tolong lakukan Quiz terlebih dahulu</h1>
