@@ -1,6 +1,6 @@
 import React from "react";
 import pattern from "../assets/background-pattern.svg";
-import "../../src/button.css";
+import "../css/button.css";
 
 function FormLogin(props) {
   return (
