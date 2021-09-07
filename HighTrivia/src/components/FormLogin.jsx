@@ -56,5 +56,3 @@ function FormLogin(props) {
 }
 
 export default FormLogin;
-
-// backgroundColor: "#858DFA"
