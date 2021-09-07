@@ -11,6 +11,7 @@ function Quiz() {
   const { id } = useParams();
   const data = useSelector(state => state.quiz);
   const isViaHome = useSelector(state => state.viaHome);
+  const user = JSON.parse(localStorage.getItem("access"));
 
   window.onpopstate = () => {
     // if (window.confirm("Apakah anda yakin?")) {
@@ -53,6 +54,7 @@ function Quiz() {
             quiz={quiz}
             options={options}
             onClickOption={onClickOption}
+            username={user.username}
           />
         ) : (
           <h1>Waiting</h1>
