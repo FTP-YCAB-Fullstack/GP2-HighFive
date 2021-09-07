@@ -24,7 +24,7 @@ function FormLogin(props) {
             Welcome Back
           </h1>
           <p className="text-sm mt-6 text-center mb-10 font-normal text-white">
-            Please Login with your personal info
+            Please {props.from} with your personal info
           </p>
         </div>
 
@@ -66,7 +66,7 @@ function FormLogin(props) {
               type="submit"
               id="btn-login"
             >
-              L O G I N
+              {props.from === "Login" ? "L O G I N" : "R E G I S T E R"}
             </button>
           </div>
         </form>
