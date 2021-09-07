@@ -1,27 +1,39 @@
 import React from "react";
-import pattern from '../assets/background-pattern.svg';
-import '../../src/button.css'
+import pattern from "../assets/background-pattern.svg";
+import "../../src/button.css";
 
 function FormLogin(props) {
   return (
-    <div style={{backgroundImage: `url(${pattern})`, backgroundRepeat: "no-repeat", backgroundSize: "cover" }} className="flex h-screen">
-      <div style={{backgroundColor: "#6149FF"}} className="m-auto max-w-md w-full rounded-md p-5 shadow-2xl">
+    <div
+      style={{
+        backgroundImage: `url(${pattern})`,
+        backgroundRepeat: "no-repeat",
+        backgroundSize: "cover"
+      }}
+      className="flex h-screen"
+    >
+      <div
+        style={{ backgroundColor: "#6149FF" }}
+        className="m-auto max-w-md w-full rounded-md p-5 shadow-2xl"
+      >
         <div className="w-auto">
-<<<<<<< HEAD
-          <h1 className="text-5xl text-center">Welcome Back</h1>
-          <p className="text-sm mt-6 text-center mb-10">
-            Please {props.from} with your personal info
-=======
-          <h1 style={{color: "#fafbff"}} className="text-5xl text-center font-bold">Welcome Back</h1>
+          <h1
+            style={{ color: "#fafbff" }}
+            className="text-5xl text-center font-bold"
+          >
+            Welcome Back
+          </h1>
           <p className="text-sm mt-6 text-center mb-10 font-normal text-white">
             Please Login with your personal info
->>>>>>> a75109055fea12c63ce3eafee59984125864f46a
           </p>
         </div>
 
         <form onSubmit={props.onClickSubmit}>
           <div>
-            <label className="mb-2 block font-semibold text-white" htmlFor="username">
+            <label
+              className="mb-2 block font-semibold text-white"
+              htmlFor="username"
+            >
               Username
             </label>
             <input
@@ -33,7 +45,10 @@ function FormLogin(props) {
           </div>
 
           <div className="mb-8">
-            <label className="mb-2 block mt-8 font-semibold text-white" htmlFor="username">
+            <label
+              className="mb-2 block mt-8 font-semibold text-white"
+              htmlFor="username"
+            >
               Password
             </label>
             <input
