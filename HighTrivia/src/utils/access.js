@@ -1,27 +1,66 @@
+import axios from "axios";
+import { login } from "../redux/action";
+
 let access = {
-  isLogin() {
+  async isLogin() {
     let user = JSON.parse(localStorage.getItem("access"));
-    if (
-      user != null &&
-      user.username === "admin" &&
-      user.password === "admin"
-    ) {
+
+    if (user === null) {
+      return false;
+    }
+
+    const { data } = await axios.get(
+      "https://613617b98700c50017ef53d2.mockapi.io/hightrivia/api/users"
+    );
+
+    const validation = data.filter(item => {
+      if (item.username === user.username && item.password === user.password) {
+        return true;
+      }
+      return false;
+    });
+
+    if (validation[0] !== undefined) {
       return true;
     }
+
     return false;
   },
-  setLogin(username, password) {
-    if (username === "admin" && password === "admin") {
+
+  login(username, password, users, history, dispatch) {
+    const validation = users.filter(item => {
+      if (item.username === username && item.password === password) {
+        return true;
+      }
+      return false;
+    });
+
+    if (validation[0] !== undefined) {
+      history.push({
+        pathname: "/"
+      });
+      dispatch(login(true));
       let user = { username: username, password: password };
       localStorage.setItem("access", JSON.stringify(user));
-      alert("Anda berhasil Login");
-      return true;
+      alert("Anda berhasil login");
+    } else {
+      alert("Anda gagal login");
     }
-    alert("Anda gagal Login");
-    return false;
   },
-  getLogout() {
+
+  logout() {
     localStorage.clear();
+  },
+
+  register(username, password, dispatch) {
+    axios.post(
+      "https://613617b98700c50017ef53d2.mockapi.io/hightrivia/api/users",
+      { username, password }
+    );
+    dispatch(login(true));
+    let user = { username: username, password: password };
+    localStorage.setItem("access", JSON.stringify(user));
+    alert("Berhasil Register");
   }
 };
 

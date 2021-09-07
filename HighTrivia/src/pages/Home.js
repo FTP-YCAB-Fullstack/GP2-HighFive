@@ -1,19 +1,27 @@
 import React, { useState } from "react";
 import access from "../utils/access";
+<<<<<<< HEAD
 import { useDispatch } from "react-redux";
 import { setViaHome, resetResult } from "../redux/action";
 import '../css/HomePage.css'
+=======
+import { useDispatch, useSelector } from "react-redux";
+import { setViaHome, resetResult, setQuiz, login } from "../redux/action";
+// import Homepage from "../components/HomePage";
+>>>>>>> cf415e6e3c8bb73ff2c38925ccec9f27d920bef6
 
 function Home(props) {
-  console.log(props);
-  const [isLogin, setLogin] = useState(access.isLogin());
+  const isLogin = useSelector(state => state.access.isLogin);
+
+  const [category, setCategory] = useState("31");
+  const [difficult, setDifficult] = useState("easy");
   const dispatch = useDispatch();
   dispatch(resetResult());
 
   const onClickLoginAndLogout = () => {
-    if (access.isLogin()) {
-      access.getLogout();
-      setLogin(false);
+    if (isLogin) {
+      dispatch(login(false));
+      access.logout();
       alert("Anda Logout");
     } else {
       props.history.push({
@@ -24,17 +32,36 @@ function Home(props) {
 
   const onClickStart = () => {
     dispatch(setViaHome(true));
+    const link = `https://opentdb.com/api.php?amount=10&category=${category}&difficulty=${difficult}`;
+    dispatch(setQuiz(link));
     props.history.push({
-      pathname: "/question",
-      state: true
+      pathname: "/question"
     });
   };
 
-  return (
+  const onClickRegister = () => {
+    props.history.push({
+      pathname: "/register"
+    });
+  };
+
+  return isLogin === null ? (<h1>waiting</h1>) : (
     <>
+<<<<<<< HEAD
       {/* <Homepage /> */}
       <nav className="flex justify-between bg-blue-400 p-3 absolute top-0 z-50 w-full">
+=======
+      <nav className="flex justify-between bg-gray-400 p-3 absolute top-0 z-50 w-full">
+>>>>>>> cf415e6e3c8bb73ff2c38925ccec9f27d920bef6
         <span className="text-white">Logo</span>
+        {!isLogin ? (
+          <button
+            className="bg-white px-3 rounded-md"
+            onClick={onClickRegister}
+          >
+            Register
+          </button>
+        ) : null}
         <button
           className="bg-white px-3 rounded-md"
           onClick={onClickLoginAndLogout}
@@ -45,6 +72,7 @@ function Home(props) {
 
       <div className="flex h-screen justify-center items-center">
         <div className="flex justify-center items-center flex-col justify-around h-2/5 w-1/2">
+<<<<<<< HEAD
         <div className="select-box">
           <select className="flex bg-blue-400 w-2/3 justify-between py-4 px-5 rounded-lg text-white">
               <option value="0">Anime</option>
@@ -61,8 +89,32 @@ function Home(props) {
         </div>
         <button className="bg-blue-500 py-4 px-10 rounded-lg text-white" onClick={onClickStart}>Start</button>
           </div>
+=======
+          <select
+            className="flex bg-gray-400 w-2/3 justify-between py-4 px-5 rounded-lg text-white"
+            onChange={event => setCategory(event.target.value)}
+          >
+            <option value="31">Anime</option>
+            <option value="19">Matematika</option>
+            <option value="15">Games</option>
+          </select>
+          <select
+            className="flex bg-gray-400 w-2/3 justify-between py-4 px-5 rounded-lg text-white"
+            onChange={event => setDifficult(event.target.value)}
+          >
+            <option value="easy">Easy</option>
+            <option value="medium">Medium</option>
+            <option value="hard">Hard</option>
+          </select>
+          <button
+            className="bg-gray-400 py-4 px-8 rounded-lg text-white"
+            onClick={onClickStart}
+          >
+            Start
+          </button>
+        </div>
+>>>>>>> cf415e6e3c8bb73ff2c38925ccec9f27d920bef6
       </div>
-
 
       {/* <div className="flex h-screen justify-center items-center">
         <div className="flex justify-center items-center flex-col justify-around h-2/5 w-1/2">

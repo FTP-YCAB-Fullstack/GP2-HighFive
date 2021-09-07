@@ -1,7 +1,11 @@
 import React, { useEffect } from "react";
 import { useSelector, useDispatch } from "react-redux";
 import { resetResult } from "../redux/action";
+<<<<<<< HEAD
 import ResultPage from "../components/Result";
+=======
+import ResultPage from "../components/ResultPage";
+>>>>>>> cf415e6e3c8bb73ff2c38925ccec9f27d920bef6
 
 function Result(props) {
   const result = useSelector(state => state.result);
@@ -22,6 +26,7 @@ function Result(props) {
 
   return (
     <>
+<<<<<<< HEAD
       <ResultPage onClickBackToHome={onClickBackToHome} result={result} {...props}/>
 
 
@@ -36,6 +41,13 @@ function Result(props) {
         <h1>Tolong lakukan Quiz terlebih dahulu</h1>
       )}
       <button onClick={onClickBackToHome}>Back To Home</button> */}
+=======
+      <ResultPage
+        onClickBackToHome={onClickBackToHome}
+        result={result}
+        {...props}
+      />
+>>>>>>> cf415e6e3c8bb73ff2c38925ccec9f27d920bef6
     </>
   );
 }

@@ -1,21 +1,17 @@
 import React from "react";
 import { Route } from "react-router-dom";
-import access from "../utils/access";
 import Home from "../pages/Home";
-import Question from "../pages/Question";
 import Login from "../pages/Login";
+import { useSelector } from "react-redux";
 
-function PrivateRoute({ component: Component, isQuiz: IsQuiz, ...rest }) {
+function PrivateRoute({ component: Component, ...rest }) {
+  const isLogin = useSelector(state => state.access.isLogin);
   return (
     <Route
       {...rest}
       render={props => {
-        if (access.isLogin()) {
-          if (IsQuiz) {
-            return <Question {...props} />;
-          } else {
-            return <Component {...props} />;
-          }
+        if (isLogin) {
+          return <Component {...props} />;
         } else {
           alert("Mohon Login terlebih dahulu");
           return <Login {...props} />;
@@ -30,15 +26,12 @@ function PublicRoute({
   onlyPublic: OnlyPublic,
   ...rest
 }) {
+  const isLogin = useSelector(state => state.access.isLogin);
   return (
     <Route
       {...rest}
       render={props =>
-        access.isLogin() && OnlyPublic ? (
-          <Home {...props} />
-        ) : (
-          <Component {...props} />
-        )
+        isLogin && OnlyPublic ? <Home {...props} /> : <Component {...props} />
       }
     />
   );
