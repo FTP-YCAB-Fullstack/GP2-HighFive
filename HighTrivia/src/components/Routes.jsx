@@ -1,5 +1,5 @@
 import React from "react";
-import { Route, Redirect } from "react-router-dom";
+import { Route } from "react-router-dom";
 import Home from "../pages/Home";
 import Login from "../pages/Login";
 import { useSelector } from "react-redux";
