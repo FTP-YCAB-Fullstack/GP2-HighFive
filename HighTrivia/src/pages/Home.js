@@ -3,6 +3,8 @@ import access from "../utils/access";
 import { useDispatch, useSelector } from "react-redux";
 import { setViaHome, resetResult, setQuiz, login} from "../redux/action";
 import '../css/HomePage.css'
+import '../css/button.css'
+import '../css/font.css'
 
 function Home(props) {
   const isLogin = useSelector(state => state.access.isLogin);
@@ -42,18 +44,18 @@ function Home(props) {
   return isLogin === null ? (<h1>waiting</h1>) : (
     <>
       {/* <Homepage /> */}
-      <nav className="flex justify-between bg-blue-400 p-3 absolute top-0 z-50 w-full">
-        <span className="text-white">Logo</span>
+      <nav className="flex justify-between items-center bg-blue-400 p-3 absolute top-0 z-50 w-full">
+        <span className="text-white">HighTrivia</span>
         {!isLogin ? (
           <button
-            className="bg-white px-3 rounded-md"
+            className="bg-white text-blue px-3 py-1 rounded-full"
             onClick={onClickRegister}
           >
             Register
           </button>
         ) : null}
         <button
-          className="bg-white px-3 rounded-md"
+          className="bg-white text-blue px-4 py-1 rounded-full"
           onClick={onClickLoginAndLogout}
         >
           {isLogin ? "Logout" : "Login"}
@@ -80,7 +82,7 @@ function Home(props) {
               <option value="2">Hard</option>
           </select>
         </div>
-        <button className="bg-blue-500 py-4 px-10 rounded-lg text-white" onClick={onClickStart}>Start</button>
+        <button className="bg-blue-500 py-4 px-10 rounded-lg text-white" onClick={onClickStart} id="btn-homepage">Start</button>
           </div>
       </div>
 
