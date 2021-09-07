@@ -7,7 +7,7 @@ function FormLogin(props) {
         <div className="w-auto">
           <h1 className="text-5xl text-center">Welcome Back</h1>
           <p className="text-sm mt-6 text-center mb-10">
-            Please Login with your personal info
+            Please {props.from} with your personal info
           </p>
         </div>
 

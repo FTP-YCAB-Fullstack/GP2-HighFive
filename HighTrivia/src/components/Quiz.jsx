@@ -10,7 +10,6 @@ function Quiz() {
   const dispatch = useDispatch();
   const { id } = useParams();
   const data = useSelector(state => state.quiz);
-  console.log(data);
   const isViaHome = useSelector(state => state.viaHome);
 
   window.onpopstate = () => {

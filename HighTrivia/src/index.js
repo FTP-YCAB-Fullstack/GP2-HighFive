@@ -8,6 +8,7 @@ import Login from "./pages/Login";
 import Question from "./pages/Question";
 import { PublicRoute, PrivateRoute } from "./components/Routes";
 import Result from "./pages/Result";
+import Register from "./pages/Register";
 
 ReactDOM.render(
   <Provider store={store}>
@@ -15,6 +16,12 @@ ReactDOM.render(
       <Switch>
         <PublicRoute onlyPublic={false} exact path="/" component={Home} />
         <PublicRoute onlyPublic={true} exact path="/login" component={Login} />
+        <PublicRoute
+          onlyPublic={true}
+          exact
+          path="/register"
+          component={Register}
+        />
         <PrivateRoute path="/question/" component={Question} />
         <PrivateRoute exact path="/result" component={Result} />
         <PublicRoute onlyPublic={false} exact path="*">

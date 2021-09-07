@@ -1,4 +1,5 @@
 import axios from "axios";
+import access from "../utils/access";
 
 const setQuiz = link => {
   return async dispatch => {
@@ -39,4 +40,30 @@ const setViaHome = isViaHome => {
   };
 };
 
-export { setQuiz, setResult, resetResult, setViaHome };
+const fetchUsers = () => {
+  return async dispatch => {
+    const { data: users } = await axios.get(
+      "https://613617b98700c50017ef53d2.mockapi.io/hightrivia/api/users"
+    );
+    dispatch({
+      type: "SET_USERS",
+      payload: {
+        users
+      }
+    });
+  };
+};
+
+const login = doLogin => {
+  return async dispatch => {
+    const isLogin = doLogin === undefined ? await access.isLogin() : doLogin;
+    dispatch({
+      type: "SET_LOGIN",
+      payload: {
+        isLogin
+      }
+    });
+  };
+};
+
+export { setQuiz, setResult, resetResult, setViaHome, login, fetchUsers };

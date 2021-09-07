@@ -1,20 +1,21 @@
 import React, { useState } from "react";
 import access from "../utils/access";
-import { useDispatch } from "react-redux";
-import { setViaHome, resetResult, setQuiz } from "../redux/action";
+import { useDispatch, useSelector } from "react-redux";
+import { setViaHome, resetResult, setQuiz, login } from "../redux/action";
 // import Homepage from "../components/HomePage";
 
 function Home(props) {
-  const [isLogin, setLogin] = useState(access.isLogin());
+  const isLogin = useSelector(state => state.access.isLogin);
+
   const [category, setCategory] = useState("31");
   const [difficult, setDifficult] = useState("easy");
   const dispatch = useDispatch();
   dispatch(resetResult());
 
   const onClickLoginAndLogout = () => {
-    if (access.isLogin()) {
-      access.getLogout();
-      setLogin(false);
+    if (isLogin) {
+      dispatch(login(false));
+      access.logout();
       alert("Anda Logout");
     } else {
       props.history.push({
@@ -32,11 +33,24 @@ function Home(props) {
     });
   };
 
+  const onClickRegister = () => {
+    props.history.push({
+      pathname: "/register"
+    });
+  };
+
   return (
     <>
-      {/* <Homepage /> */}
       <nav className="flex justify-between bg-gray-400 p-3 absolute top-0 z-50 w-full">
         <span className="text-white">Logo</span>
+        {!isLogin ? (
+          <button
+            className="bg-white px-3 rounded-md"
+            onClick={onClickRegister}
+          >
+            Register
+          </button>
+        ) : null}
         <button
           className="bg-white px-3 rounded-md"
           onClick={onClickLoginAndLogout}
