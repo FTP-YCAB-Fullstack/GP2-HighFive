@@ -39,7 +39,7 @@ function Home(props) {
     });
   };
 
-  return (
+  return isLogin === null ? (<h1>waiting</h1>) : (
     <>
       <nav className="flex justify-between bg-gray-400 p-3 absolute top-0 z-50 w-full">
         <span className="text-white">Logo</span>
