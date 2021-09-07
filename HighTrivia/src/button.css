@@ -1,0 +1,11 @@
+#btn-login {
+    background-color: transparent;
+    border: 3px solid white;
+    transition: all .5s ease;
+}
+
+#btn-login:hover {
+    color: black;
+    background-color: #fff;
+    transform: translateY(-3px);
+}
