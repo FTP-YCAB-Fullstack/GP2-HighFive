@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import access from "../utils/access";
 import { useDispatch } from "react-redux";
 import { setViaHome, resetResult } from "../redux/action";
-// import Homepage from "../components/HomePage";
+import '../css/HomePage.css'
 
 function Home(props) {
   console.log(props);
