@@ -22,7 +22,11 @@ function Result(props) {
 
   return (
     <>
-      <ResultPage onClickBackToHome={onClickBackToHome} result={result} {...props} />
+      <ResultPage
+        onClickBackToHome={onClickBackToHome}
+        result={result}
+        {...props}
+      />
     </>
   );
 }

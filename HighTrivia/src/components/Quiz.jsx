@@ -9,8 +9,16 @@ function Quiz() {
   const history = useHistory();
   const dispatch = useDispatch();
   const { id } = useParams();
-  const data = useSelector(state => state.math.medium);
+  const data = useSelector(state => state.quiz);
   const isViaHome = useSelector(state => state.viaHome);
+  const user = JSON.parse(localStorage.getItem("access"));
+
+  window.onpopstate = () => {
+    // if (window.confirm("Apakah anda yakin?")) {
+    //   history.replace("/");
+    // } else window.history.forward();
+    history.replace("/");
+  };
 
   const onClickOption = (event, correct_answer) => {
     if (event.target.innerText === correct_answer) {
@@ -19,7 +27,7 @@ function Quiz() {
       alert("Anda Salah");
     }
     dispatch(setResult(event.target.innerText === correct_answer));
-    if (Number(id) < 5) {
+    if (Number(id) + 1 < data.length) {
       history.replace({
         pathname: `/question/${Number(id) + 1}`
       });
@@ -32,31 +40,27 @@ function Quiz() {
   };
 
   if (isViaHome) {
-    if (Number(id) < data.length || data[0] === undefined) {
-      let quiz = {};
-      let options = [];
-      if (data[0] !== undefined) {
-        quiz = data[Number(id)];
-        options = shuffleArray([
-          ...quiz.incorrect_answers,
-          quiz.correct_answer
-        ]);
-      }
-
-      return (
-        <div>
-          {data[0] !== undefined ? (
-            <BoxQuiz
-              quiz={quiz}
-              options={options}
-              onClickOption={onClickOption}
-            />
-          ) : (
-            <h1>Waiting</h1>
-          )}
-        </div>
-      );
+    let quiz = {};
+    let options = [];
+    if (data[0] !== undefined) {
+      quiz = data[Number(id)];
+      options = shuffleArray([...quiz.incorrect_answers, quiz.correct_answer]);
     }
+
+    return (
+      <div>
+        {data[0] !== undefined ? (
+          <BoxQuiz
+            quiz={quiz}
+            options={options}
+            onClickOption={onClickOption}
+            username={user.username}
+          />
+        ) : (
+          <h1>Waiting</h1>
+        )}
+      </div>
+    );
   }
 
   return <h1>404 not found</h1>;

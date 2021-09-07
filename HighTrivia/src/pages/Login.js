@@ -1,21 +1,22 @@
 import React from "react";
 import FormLogin from "../components/FormLogin";
+import { useSelector, useDispatch } from "react-redux";
 import access from "../utils/access";
 
 function Login(props) {
+  const users = useSelector(state => state.access.users);
+  const dispatch = useDispatch();
+
   const onClickSubmit = event => {
     event.preventDefault();
-    const name = event.target.username.value;
+    const username = event.target.username.value;
     const password = event.target.password.value;
-    if (access.setLogin(name, password)) {
-      props.history.push({
-        pathname: "/"
-      });
-    }
+
+    access.login(username, password, users, props.history, dispatch);
     event.target.reset();
   };
 
-  return <FormLogin onClickSubmit={onClickSubmit} />;
+  return <FormLogin onClickSubmit={onClickSubmit} from="Login" />;
 }
 
 export default Login;
