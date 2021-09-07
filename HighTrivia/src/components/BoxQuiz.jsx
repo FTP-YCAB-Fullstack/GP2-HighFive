@@ -9,12 +9,12 @@ function BoxQuiz(props) {
         </nav>
 
         <div className="flex flex-col justify-center items-center w-2/3 h-2/3 py-12 bg-blue-400 rounded-2xl">
-          <div className="text-2xl">{props.quiz.question}</div>
+          <div className="text-2xl text-center font-mono px-3">{props.quiz.question}</div>
           <div className="flex flex-wrap h-auto w-4/5 mt-8 justify-center items-center">
             {props.options.map((itemOptions, index) => {
               return (
                 <button
-                  className="bg-white w-1/3 m-5 rounded-md px-7 py-3"
+                  className="bg-blue-600 w-1/3 m-5 rounded-md px-7 py-3"
                   onClick={event =>
                     props.onClickOption(event, props.quiz.correct_answer)
                   }
