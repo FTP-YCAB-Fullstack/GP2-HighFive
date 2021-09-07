@@ -5,7 +5,7 @@ import Quiz from "../components/Quiz";
 
 function Question() {
   return (
-    <div className="flex flex-col">
+    <div>
       <Switch>
         <Route path="/question/:id">
           <Quiz />

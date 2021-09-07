@@ -1,13 +1,19 @@
 import React, { useState } from "react";
 import access from "../utils/access";
 import { useDispatch, useSelector } from "react-redux";
-import { setViaHome, resetResult, setQuiz, login } from "../redux/action";
+import {
+  setViaHome,
+  resetResult,
+  setQuiz,
+  login,
+  setCategoryDifficult
+} from "../redux/action";
 // import Homepage from "../components/HomePage";
 
 function Home(props) {
   const isLogin = useSelector(state => state.access.isLogin);
 
-  const [category, setCategory] = useState("31");
+  const [category, setCategory] = useState(["31", "Anime"]);
   const [difficult, setDifficult] = useState("easy");
   const dispatch = useDispatch();
   dispatch(resetResult());
@@ -26,8 +32,9 @@ function Home(props) {
 
   const onClickStart = () => {
     dispatch(setViaHome(true));
-    const link = `https://opentdb.com/api.php?amount=10&category=${category}&difficulty=${difficult}`;
+    const link = `https://opentdb.com/api.php?amount=10&category=${category[0]}&difficulty=${difficult}`;
     dispatch(setQuiz(link));
+    dispatch(setCategoryDifficult(category[1], difficult));
     props.history.push({
       pathname: "/question"
     });
@@ -39,7 +46,9 @@ function Home(props) {
     });
   };
 
-  return isLogin === null ? (<h1>waiting</h1>) : (
+  return isLogin === null ? (
+    <h1>waiting</h1>
+  ) : (
     <>
       <nav className="flex justify-between bg-gray-400 p-3 absolute top-0 z-50 w-full">
         <span className="text-white">Logo</span>
@@ -63,7 +72,12 @@ function Home(props) {
         <div className="flex justify-center items-center flex-col justify-around h-2/5 w-1/2">
           <select
             className="flex bg-gray-400 w-2/3 justify-between py-4 px-5 rounded-lg text-white"
-            onChange={event => setCategory(event.target.value)}
+            onChange={event =>
+              setCategory([
+                event.target.value,
+                event.target.options[event.target.selectedIndex].text
+              ])
+            }
           >
             <option value="31">Anime</option>
             <option value="19">Matematika</option>

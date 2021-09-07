@@ -19,7 +19,6 @@ const setResult = answer => {
         answer: answer
       }
     });
-    console.log(getState());
   };
 };
 
@@ -66,4 +65,24 @@ const login = doLogin => {
   };
 };
 
-export { setQuiz, setResult, resetResult, setViaHome, login, fetchUsers };
+const setCategoryDifficult = (category, difficult) => {
+  return dispatch => {
+    dispatch({
+      type: "SET_CATEGORY_DIFFICULT",
+      payload: {
+        category,
+        difficult
+      }
+    });
+  };
+};
+
+export {
+  setQuiz,
+  setResult,
+  resetResult,
+  setViaHome,
+  login,
+  fetchUsers,
+  setCategoryDifficult
+};
