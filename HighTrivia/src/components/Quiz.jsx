@@ -42,8 +42,12 @@ function Quiz() {
   if (isViaHome) {
     let quiz = {};
     let options = [];
+    let question = "";
     if (data[0] !== undefined) {
       quiz = data[Number(id)];
+      const parser = new DOMParser();
+      question = parser.parseFromString(quiz.question, "text/html").body
+        .textContent;
       options = shuffleArray([...quiz.incorrect_answers, quiz.correct_answer]);
     }
 
@@ -52,6 +56,7 @@ function Quiz() {
         {data[0] !== undefined ? (
           <BoxQuiz
             quiz={quiz}
+            question={question}
             options={options}
             onClickOption={onClickOption}
             username={user.username}

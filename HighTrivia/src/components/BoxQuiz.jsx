@@ -9,7 +9,7 @@ function BoxQuiz(props) {
         </nav>
 
         <div className="flex flex-col justify-center items-center w-2/3 h-2/3 py-12 bg-blue-400 rounded-2xl">
-          <div className="text-2xl">{props.quiz.question}</div>
+          <div className="text-2xl">{props.question}</div>
           <div className="flex flex-wrap h-auto w-4/5 mt-8 justify-center items-center">
             {props.options.map((itemOptions, index) => {
               return (
