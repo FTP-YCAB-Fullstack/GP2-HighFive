@@ -5,7 +5,7 @@ import { setViaHome, resetResult, setQuiz, login} from "../redux/action";
 import '../css/HomePage.css'
 import '../css/button.css'
 import '../css/font.css'
-import Image from "../assets/leaderboard1.svg"
+// import Image from "../assets/leaderboard1.svg"
 import Loading from "../components/Loading"
 
 function Home(props) {
