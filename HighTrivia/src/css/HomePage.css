@@ -26,7 +26,7 @@ select:focus, select:hover{
     padding-top: 10px;
 }
 
-.h-screen, .h-full {
+.h-screen {
     color: #fff;
     background: linear-gradient(-45deg, #858DFA, #9EB5FF);
     background-size: 200% 200%;

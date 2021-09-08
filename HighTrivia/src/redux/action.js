@@ -86,6 +86,14 @@ const setOptions = options => {
   };
 };
 
+const resetQuiz = () => {
+  return dispatch => {
+    dispatch({
+      type: "RESET_QUIZ"
+    });
+  };
+};
+
 export {
   setQuiz,
   setResult,
@@ -94,5 +102,6 @@ export {
   login,
   fetchUsers,
   setCategoryDifficult,
-  setOptions
+  setOptions,
+  resetQuiz
 };
