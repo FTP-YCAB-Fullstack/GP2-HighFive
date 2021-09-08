@@ -89,38 +89,33 @@ function Home(props) {
       </div>
 
       <div className="leaderBoard flex justify-center items-center bg-blue-400 h-screen w-full">
-        <div>
-          <img src={Image} alt="gambar"/>
-        </div>
+        <div className="flex flex-col justify-center items-center h-2/3 w-2/3 rounded-4xl">
+          <h1 className="text-2xl -mt-8">Leaderboard</h1>
+          <div className="flex bg-blue-400 mt-5 w-2/3 justify-between py-4 px-5 rounded-lg text-white">
+            <div className="flex flex-row">
+              <h2 className="pr-3">#1</h2>
+              <h2>Alim Makruf Tri Rachmadi</h2>
+            </div>
+            <h2>score</h2>
+          </div>
+          <div className="flex bg-blue-400 mt-5 w-2/3 justify-between py-4 px-5 rounded-lg text-white">
+            <div className="flex flex-row">
+              <h2 className="pr-3">#1</h2>
+              <h2>Alim Makruf Tri Rachmadi</h2>
+            </div>
+            <h2>score</h2>
+          </div>
+          <div className="flex bg-blue-400 mt-5 w-2/3 justify-between py-4 px-5 rounded-lg text-white">
+            <div className="flex flex-row">
+              <h2 className="pr-3">#1</h2>
+              <h2>Alim Makruf Tri Rachmadi</h2>
+            </div>
+            <h2>score</h2>
+          </div>
+        </div> 
       </div>
     </>
   );
 }
 
 export default Home;
-
-
-// {/* <div className="flex flex-col justify-center items-center bg-green-400 h-2/3 w-2/3 rounded-4xl">
-//           <h1 className="text-2xl -mt-8">Leaderboard</h1>
-//           <div className="flex bg-blue-400 mt-5 w-2/3 justify-between py-4 px-5 rounded-lg text-white">
-//             <div className="flex flex-row">
-//               <h2 className="pr-3">#1</h2>
-//               <h2>Alim Makruf Tri Rachmadi</h2>
-//             </div>
-//             <h2>score</h2>
-//           </div>
-//           <div className="flex bg-blue-400 mt-5 w-2/3 justify-between py-4 px-5 rounded-lg text-white">
-//             <div className="flex flex-row">
-//               <h2 className="pr-3">#1</h2>
-//               <h2>Alim Makruf Tri Rachmadi</h2>
-//             </div>
-//             <h2>score</h2>
-//           </div>
-//           <div className="flex bg-blue-400 mt-5 w-2/3 justify-between py-4 px-5 rounded-lg text-white">
-//             <div className="flex flex-row">
-//               <h2 className="pr-3">#1</h2>
-//               <h2>Alim Makruf Tri Rachmadi</h2>
-//             </div>
-//             <h2>score</h2>
-//           </div>
-//         </div> */}

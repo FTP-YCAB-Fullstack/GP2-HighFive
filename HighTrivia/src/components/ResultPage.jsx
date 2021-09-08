@@ -5,7 +5,7 @@ function ResultPage(props) {
     <>
       <div className="bg-blue-500 w-screen h-screen flex justify-center items-center">
         <div className="flex flex-col justify-center items-center w-2/3 h-2/3 py-12 bg-blue-400 rounded-2xl">
-          <div className="text-4xl font-bold">
+          <div className="text-4xl font-bold text-center">
             Selamat Anda Mendapatkan Nilai
           </div>
           <div className="w-full mt-8 text-center">
