@@ -11,6 +11,9 @@ const reducerQuiz = (state = initialState, action) => {
     case "SET_OPTIONS":
       return { ...state, options: [...action.payload] };
 
+    case "RESET_QUIZ":
+      return { quiz: [], options: [] };
+
     default:
       return state;
   }
