@@ -3,8 +3,8 @@ import React from "react";
 function ResultPage(props) {
   return (
     <>
-      <div className="bg-blue-500 w-screen h-screen flex justify-center items-center">
-        <div className="flex flex-col justify-center items-center w-2/3 h-2/3 py-12 bg-blue-400 rounded-2xl">
+      <div className="w-screen h-screen flex justify-center items-center">
+        <div style={{backgroundColor: "#6149FF"}} className="flex flex-col justify-center items-center w-2/3 h-2/3 py-12 rounded-2xl shadow-2xl">
           <div className="text-2xl sm:text-4xl font-bold text-center">
             Selamat Anda Mendapatkan Nilai
           </div>
@@ -19,7 +19,7 @@ function ResultPage(props) {
               <h1 className="text-2xl">Tolong lakukan Quiz terlebih dahulu</h1>
             )}
             <button
-              className="rounded w-2/5 py-2 px-4 bg-indigo-600 hover:bg-indigo-500 text-white mt-12 font-bold"
+              className="rounded w-1/4 py-4 px-2 bg-indigo-700 hover:bg-indigo-500 text-white mt-12 font-bold text-xl"
               onClick={props.onClickBackToHome}
             >
               Back To Home

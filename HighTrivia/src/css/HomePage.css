@@ -26,9 +26,9 @@ select:focus, select:hover{
     padding-top: 10px;
 }
 
-.h-screen, .h-full {
+.h-screen {
     color: #fff;
-    background: linear-gradient(-45deg, #5B86E5, #36D1DC);
+    background: linear-gradient(-45deg, #858DFA, #9EB5FF);
     background-size: 200% 200%;
     position: relative;
     animation: change 15s ease-in-out infinite;

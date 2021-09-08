@@ -4,6 +4,7 @@ import { setResult, setOptions } from "../redux/action";
 import { shuffleArray } from "../utils/array";
 import { useHistory, useParams } from "react-router-dom";
 import BoxQuiz from "./BoxQuiz";
+import ErrorPage from "./ErrorPage";
 import Loading from "../components/Loading";
 
 function Quiz() {
@@ -91,7 +92,7 @@ function Quiz() {
     );
   }
 
-  return <h1>404 not found</h1>;
+  return <ErrorPage></ErrorPage>;
 }
 
 export default Quiz;
