@@ -12,19 +12,18 @@ function Result(props) {
   // const [height, setHeight] = useState(null);
   // const [width, setWidth] = useState(null);
   // const confettiRef = useRef(null);
-  
+
   // useEffect(() => {
   //   setWidth(confettiRef.current.clientWidth)
   //   setHeight(confettiRef.current.clientHeight)
   // }, [])
-
 
   useEffect(() => {
     const sendResult = async () => {
       const { data } = await axios.get(
         `https://613617b98700c50017ef53d2.mockapi.io/hightrivia/api/leaderboard?search=${result.category}`
       );
-      console.log(data);
+
       const { username } = JSON.parse(localStorage.getItem("access"));
       if (data[0] === undefined) {
         const objLeaderboard = { category: result.category, difficult: {} };
@@ -58,6 +57,7 @@ function Result(props) {
         );
       }
     };
+
     if (props.location.state && result.answers.length > 0) {
       sendResult();
     }

@@ -6,7 +6,8 @@ import {
   resetResult,
   setQuiz,
   login,
-  setCategoryDifficult
+  setCategoryDifficult,
+  resetQuiz
 } from "../redux/action";
 import "../css/HomePage.css";
 import "../css/button.css";
@@ -21,6 +22,7 @@ function Home(props) {
   const [difficult, setDifficult] = useState("easy");
   const dispatch = useDispatch();
   dispatch(resetResult());
+  dispatch(resetQuiz());
 
   const onClickLoginAndLogout = () => {
     if (isLogin) {
@@ -56,7 +58,7 @@ function Home(props) {
     <Homepage
       {...{
         isLogin,
-        category,
+        category: category[1],
         setCategory,
         difficult,
         setDifficult,
