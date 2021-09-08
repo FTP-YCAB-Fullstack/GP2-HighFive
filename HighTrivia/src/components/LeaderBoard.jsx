@@ -1,6 +1,8 @@
 import React from "react";
 
 function LeaderBoard(props) {
+  console.log(props.data);
+
   return (
     <>
       <div className="flex flex-col justify-center items-center h-2/3 w-2/3 rounded-4xl">
