@@ -3,14 +3,17 @@ import { Route } from "react-router-dom";
 import Home from "../pages/Home";
 import Login from "../pages/Login";
 import { useSelector } from "react-redux";
+import Loading from "./Loading";
 
 function PrivateRoute({ component: Component, ...rest }) {
   const isLogin = useSelector(state => state.access.isLogin);
-  return (
+  return isLogin === null ? (
+    <Loading />
+  ) : (
     <Route
       {...rest}
       render={props => {
-        if (isLogin || isLogin === null) {
+        if (isLogin) {
           return <Component {...props} />;
         } else {
           alert("Mohon Login terlebih dahulu");
@@ -27,7 +30,9 @@ function PublicRoute({
   ...rest
 }) {
   const isLogin = useSelector(state => state.access.isLogin);
-  return (
+  return isLogin === null ? (
+    <Loading />
+  ) : (
     <Route
       {...rest}
       render={props =>

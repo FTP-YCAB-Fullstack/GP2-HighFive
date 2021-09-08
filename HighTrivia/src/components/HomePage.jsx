@@ -1,7 +1,20 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import Leaderboard from "./LeaderBoard";
+import axios from "axios";
 
 function Homepage(props) {
+  // const [dataLeaderboard, setLeaderboard] = useState(null);
+
+  // useEffect(() => {
+  //   const getData = async () => {
+  //     const { data } = await axios.get(
+  //       "https://613617b98700c50017ef53d2.mockapi.io/hightrivia/api/leaderboard"
+  //     );
+  //     setLeaderboard(data);
+  //   };
+  //   getData();
+  // }, []);
+
   return (
     <>
       <nav className="flex justify-between items-center bg-blue-400 p-3 absolute top-0 z-50 w-full">
@@ -23,34 +36,42 @@ function Homepage(props) {
       </nav>
 
       <div className="flex flex-col sm:flex-row h-screen justify-center items-center">
-      <Leaderboard />
+        <Leaderboard category={props.category} difficult={props.difficult} />
         <div className="flex justify-center items-center flex-col justify-around h-2/5 w-1/2 sm:mt-15">
           <h1 className="text-xl">Let's Play The Game</h1>
-        <div className="select-box">
-          <select className="flex bg-blue-400 w-full justify-between py-4 px-5 rounded-lg text-white"
-          onChange={event =>
-            props.setCategory([
-              event.target.value,
-              event.target.options[event.target.selectedIndex].text
-            ])
-          }
-          >
+          <div className="select-box">
+            <select
+              className="flex bg-blue-400 w-full justify-between py-4 px-5 rounded-lg text-white"
+              onChange={event =>
+                props.setCategory([
+                  event.target.value,
+                  event.target.options[event.target.selectedIndex].text
+                ])
+              }
+            >
               <option value="31">Anime</option>
               <option value="19">Matematika</option>
               <option value="15">Games</option>
-          </select>
-        </div>
-        <div className="select-box">
-          <select className="flex bg-blue-400 w-full justify-between py-4 px-5 rounded-lg text-white"
-          onChange={event => props.setDifficult(event.target.value)}
-          >
+            </select>
+          </div>
+          <div className="select-box">
+            <select
+              className="flex bg-blue-400 w-full justify-between py-4 px-5 rounded-lg text-white"
+              onChange={event => props.setDifficult(event.target.value)}
+            >
               <option value="easy">Easy</option>
               <option value="medium">Medium</option>
               <option value="hard">Hard</option>
-          </select>
-        </div>
-        <button className="bg-blue-500 py-4 px-10 rounded-lg text-white" onClick={props.onClickStart} id="btn-homepage">Start</button>
+            </select>
           </div>
+          <button
+            className="bg-blue-500 py-4 px-10 rounded-lg text-white"
+            onClick={props.onClickStart}
+            id="btn-homepage"
+          >
+            Start
+          </button>
+        </div>
       </div>
     </>
   );

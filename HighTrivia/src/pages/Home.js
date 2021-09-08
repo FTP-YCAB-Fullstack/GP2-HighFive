@@ -49,14 +49,16 @@ function Home(props) {
       pathname: "/register"
     });
   };
-  
+
   return isLogin === null ? (
-    <h1><Loading /></h1>
+    <Loading />
   ) : (
     <Homepage
       {...{
         isLogin,
+        category,
         setCategory,
+        difficult,
         setDifficult,
         onClickLoginAndLogout,
         onClickRegister,
