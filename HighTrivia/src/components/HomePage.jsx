@@ -7,7 +7,7 @@ function Homepage(props) {
         <span className="text-white">HighTrivia</span>
         {!props.isLogin ? (
           <button
-            className="bg-white text-blue px-3 py-1 rounded-full"
+            className="bg-white text-blue px-4 py-1 rounded-full"
             onClick={props.onClickRegister}
           >
             Register
@@ -55,6 +55,33 @@ function Homepage(props) {
           >
             Start
           </button>
+        </div>
+      </div>
+
+      <div className="leaderBoard flex justify-center items-center bg-blue-400 h-screen w-full">
+        <div className="flex flex-col justify-center items-center h-2/3 w-2/3 rounded-4xl">
+          <h1 className="text-2xl -mt-8">Leaderboard</h1>
+          <div className="flex bg-blue-400 mt-5 w-2/3 justify-between py-4 px-5 rounded-lg text-white">
+            <div className="flex flex-row">
+              <h2 className="pr-3">#1</h2>
+              <h2>Alim Makruf Tri Rachmadi</h2>
+            </div>
+            <h2>score</h2>
+          </div>
+          <div className="flex bg-blue-400 mt-5 w-2/3 justify-between py-4 px-5 rounded-lg text-white">
+            <div className="flex flex-row">
+              <h2 className="pr-3">#1</h2>
+              <h2>Alim Makruf Tri Rachmadi</h2>
+            </div>
+            <h2>score</h2>
+          </div>
+          <div className="flex bg-blue-400 mt-5 w-2/3 justify-between py-4 px-5 rounded-lg text-white">
+            <div className="flex flex-row">
+              <h2 className="pr-3">#1</h2>
+              <h2>Alim Makruf Tri Rachmadi</h2>
+            </div>
+            <h2>score</h2>
+          </div>
         </div>
       </div>
     </>

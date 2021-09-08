@@ -11,6 +11,7 @@ import {
 import "../css/HomePage.css";
 import "../css/button.css";
 import "../css/font.css";
+import Loading from "../components/Loading";
 import Homepage from "../components/HomePage";
 
 function Home(props) {
@@ -50,7 +51,7 @@ function Home(props) {
   };
 
   return isLogin === null ? (
-    <h1>waiting</h1>
+    <Loading />
   ) : (
     <Homepage
       {...{

@@ -4,6 +4,7 @@ import { setResult, setOptions } from "../redux/action";
 import { shuffleArray } from "../utils/array";
 import { useHistory, useParams } from "react-router-dom";
 import BoxQuiz from "./BoxQuiz";
+import Loading from "../components/Loading";
 
 function Quiz() {
   const history = useHistory();
@@ -85,7 +86,7 @@ function Quiz() {
             currentAnswer={currentAnswer}
           />
         ) : (
-          <h1>Waiting</h1>
+          <Loading />
         )}
       </div>
     );
