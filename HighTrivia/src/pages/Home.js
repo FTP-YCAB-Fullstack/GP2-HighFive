@@ -5,6 +5,8 @@ import { setViaHome, resetResult, setQuiz, login} from "../redux/action";
 import '../css/HomePage.css'
 import '../css/button.css'
 import '../css/font.css'
+import Image from "../assets/leaderboard1.svg"
+import Loading from "../components/Loading"
 
 function Home(props) {
   const isLogin = useSelector(state => state.access.isLogin);
@@ -41,14 +43,14 @@ function Home(props) {
     });
   };
 
-  return isLogin === null ? (<h1>waiting</h1>) : (
+  return isLogin === null ? (<h1><Loading /></h1>) : (
     <>
       {/* <Homepage /> */}
       <nav className="flex justify-between items-center bg-blue-400 p-3 absolute top-0 z-50 w-full">
         <span className="text-white">HighTrivia</span>
         {!isLogin ? (
           <button
-            className="bg-white text-blue px-3 py-1 rounded-full"
+            className="bg-white text-blue px-4 py-1 rounded-full"
             onClick={onClickRegister}
           >
             Register
@@ -86,8 +88,39 @@ function Home(props) {
           </div>
       </div>
 
+      <div className="leaderBoard flex justify-center items-center bg-blue-400 h-screen w-full">
+        <div>
+          <img src={Image} alt="gambar"/>
+        </div>
+      </div>
     </>
   );
 }
 
 export default Home;
+
+
+// {/* <div className="flex flex-col justify-center items-center bg-green-400 h-2/3 w-2/3 rounded-4xl">
+//           <h1 className="text-2xl -mt-8">Leaderboard</h1>
+//           <div className="flex bg-blue-400 mt-5 w-2/3 justify-between py-4 px-5 rounded-lg text-white">
+//             <div className="flex flex-row">
+//               <h2 className="pr-3">#1</h2>
+//               <h2>Alim Makruf Tri Rachmadi</h2>
+//             </div>
+//             <h2>score</h2>
+//           </div>
+//           <div className="flex bg-blue-400 mt-5 w-2/3 justify-between py-4 px-5 rounded-lg text-white">
+//             <div className="flex flex-row">
+//               <h2 className="pr-3">#1</h2>
+//               <h2>Alim Makruf Tri Rachmadi</h2>
+//             </div>
+//             <h2>score</h2>
+//           </div>
+//           <div className="flex bg-blue-400 mt-5 w-2/3 justify-between py-4 px-5 rounded-lg text-white">
+//             <div className="flex flex-row">
+//               <h2 className="pr-3">#1</h2>
+//               <h2>Alim Makruf Tri Rachmadi</h2>
+//             </div>
+//             <h2>score</h2>
+//           </div>
+//         </div> */}

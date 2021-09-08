@@ -22,6 +22,11 @@ function Homepage () {
                 <button className="bg-gray-400 py-4 px-8 rounded-lg text-white">Start</button>
                 </div>
             </div>
+
+            <div className="leader-board">\
+                <div ></div>
+
+            </div>
         </>
     )
 }
