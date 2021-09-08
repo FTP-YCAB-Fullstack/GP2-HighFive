@@ -3,7 +3,7 @@ import React from "react";
 function LeaderBoard(props) {
   return (
     <>
-      <div className="flex flex-col justify-center items-center h-2/3 w-2/3 rounded-4xl">
+      <div className="flex flex-col justify-center items-center h-2/3 w-1/2 rounded-4xl">
         <div className="mt-24 sm:mt-0">
           <h1 className="text-2xl text-center -mt-8">Leaderboard</h1>
           <h2 className="text-xl text-center mt-2">{`( ${props.category} - ${props.difficult} )`}</h2>

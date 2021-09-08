@@ -44,7 +44,7 @@ function Homepage(props) {
           <h1 className="text-xl">Let's Play The Game</h1>
           <div className="select-box">
             <select
-              className="flex bg-blue-400 w-full justify-between py-4 px-5 rounded-lg text-white"
+              className="flex bg-blue-400 w-80 justify-between py-4 px-5 rounded-lg text-white"
               onChange={event =>
                 props.setCategory([
                   event.target.value,
@@ -59,7 +59,7 @@ function Homepage(props) {
           </div>
           <div className="select-box">
             <select
-              className="flex bg-blue-400 w-full justify-between py-4 px-5 rounded-lg text-white"
+              className="flex bg-blue-400 w-80 justify-between py-4 px-5 rounded-lg text-white"
               onChange={event => props.setDifficult(event.target.value)}
             >
               <option value="easy">Easy</option>
@@ -68,7 +68,7 @@ function Homepage(props) {
             </select>
           </div>
           <button
-            className="bg-blue-500 py-4 px-10 rounded-lg text-white"
+            className="bg-blue-500 py-3 px-7 rounded-lg text-white"
             onClick={props.onClickStart}
             id="btn-homepage"
           >
