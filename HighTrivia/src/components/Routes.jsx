@@ -10,7 +10,7 @@ function PrivateRoute({ component: Component, ...rest }) {
     <Route
       {...rest}
       render={props => {
-        if (isLogin || isLogin === null) {
+        if (isLogin) {
           return <Component {...props} />;
         } else {
           alert("Mohon Login terlebih dahulu");

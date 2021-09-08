@@ -33,9 +33,9 @@ function Homepage(props) {
                 ])
               }
             >
-              <option value="0">Anime</option>
-              <option value="1">Matematika</option>
-              <option value="2">Games</option>
+              <option value="31">Anime</option>
+              <option value="19">Matematika</option>
+              <option value="15">Games</option>
             </select>
           </div>
           <div className="select-box">
@@ -43,9 +43,9 @@ function Homepage(props) {
               className="flex bg-blue-400 w-2/3 justify-between py-4 px-5 rounded-lg text-white"
               onChange={event => props.setDifficult(event.target.value)}
             >
-              <option value="0">Easy</option>
-              <option value="1">Medium</option>
-              <option value="2">Hard</option>
+              <option value="easy">Easy</option>
+              <option value="medium">Medium</option>
+              <option value="hard">Hard</option>
             </select>
           </div>
           <button
