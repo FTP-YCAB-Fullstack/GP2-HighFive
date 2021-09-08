@@ -3,7 +3,6 @@
     padding: 10px 15px;
     line-height: 18px;
     font-size: 16px;
-    width: 500px;
     border: 2px solid #ccc;
     border-radius: 8px;
     -webkit-appearance: none;
@@ -27,7 +26,7 @@ select:focus, select:hover{
     padding-top: 10px;
 }
 
-.h-screen {
+.h-screen, .h-full {
     color: #fff;
     background: linear-gradient(-45deg, #5B86E5, #36D1DC);
     background-size: 200% 200%;
