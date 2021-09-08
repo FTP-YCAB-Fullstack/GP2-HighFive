@@ -48,3 +48,8 @@ select:focus, select:hover{
 
 }
 
+img {
+    width: 50;
+    height: 50;
+}
+

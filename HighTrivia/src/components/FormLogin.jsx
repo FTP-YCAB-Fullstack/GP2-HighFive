@@ -52,7 +52,7 @@ function FormLogin(props) {
               Password
             </label>
             <input
-              className="w-full p-2 rounded-md outline-none border-b-2 border-l-2 border-indigo-500 hover:bg-gray-200 placeholder-gray-400 text-black"
+              className="w-full p-2 rounded-md outline-none border-b-2 border-l-2 border-indigo-500 hover:bg-gray-200 placeholder-gray-400 text-blue"
               type="password"
               name="password"
               placeholder="Password"

@@ -11,6 +11,7 @@ import {
 import "../css/HomePage.css";
 import "../css/button.css";
 import "../css/font.css";
+import Loading from "../components/Loading";
 import Homepage from "../components/HomePage";
 
 function Home(props) {
@@ -48,9 +49,9 @@ function Home(props) {
       pathname: "/register"
     });
   };
-
+  
   return isLogin === null ? (
-    <h1>waiting</h1>
+    <h1><Loading /></h1>
   ) : (
     <Homepage
       {...{

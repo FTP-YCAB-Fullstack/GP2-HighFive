@@ -28,21 +28,6 @@ function BoxQuiz(props) {
           </div>
         </div>
       </div>
-
-      {/* <h2>{props.quiz.question}</h2>
-      {props.options.map((itemOptions, index) => {
-        return (
-          <button
-            className="bg-white w-1/3 m-5 rounded-md px-7 py-3"
-            onClick={event =>
-              props.onClickOption(event, props.quiz.correct_answer)
-            }
-            key={index}
-          >
-            {itemOptions}
-          </button>
-        );
-      })} */}
     </>
   );
 }
