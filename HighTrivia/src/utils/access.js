@@ -52,15 +52,26 @@ let access = {
     localStorage.clear();
   },
 
-  register(username, password, dispatch) {
-    axios.post(
-      "https://613617b98700c50017ef53d2.mockapi.io/hightrivia/api/users",
-      { username, password }
-    );
-    dispatch(login(true));
-    let user = { username: username, password: password };
-    localStorage.setItem("access", JSON.stringify(user));
-    alert("Berhasil Register");
+  register(username, password, users, dispatch) {
+    const validation = users.filter(item => {
+      if (item.username === username) {
+        return true;
+      }
+      return false;
+    });
+
+    if (validation[0] === undefined) {
+      axios.post(
+        "https://613617b98700c50017ef53d2.mockapi.io/hightrivia/api/users",
+        { username, password }
+      );
+      dispatch(login(true));
+      let user = { username: username, password: password };
+      localStorage.setItem("access", JSON.stringify(user));
+      alert("Berhasil Register");
+    } else {
+      alert("User telah terdaftar");
+    }
   }
 };
 

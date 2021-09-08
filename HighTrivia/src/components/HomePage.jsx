@@ -1,4 +1,5 @@
 import React from "react";
+import Leaderboard from "./LeaderBoard";
 
 function Homepage(props) {
   return (
@@ -21,60 +22,59 @@ function Homepage(props) {
         </button>
       </nav>
 
-      <div className="flex h-screen justify-center items-center">
-        <div className="flex justify-center items-center flex-col justify-around h-2/5 w-1/2">
-        <div className="select-box">
-          <select className="flex bg-blue-400 w-2/3 justify-between py-4 px-5 rounded-lg text-white"
-          onChange={event =>
-            props.setCategory([
-              event.target.value,
-              event.target.options[event.target.selectedIndex].text
-            ])
-          }
-          >
+      <div className="flex flex-col sm:flex-row h-screen justify-center items-center">
+        {props.dataLeaderboard[0] === undefined ? (
+          <Leaderboard category={props.category} difficult={props.difficult} />
+        ) : (
+          props.dataLeaderboard.map((item, index) => {
+            if (item.category === props.category) {
+              return (
+                <Leaderboard
+                  category={props.category}
+                  difficult={props.difficult}
+                  data={item.difficult[props.difficult]}
+                  key={index}
+                />
+              );
+            }
+            return null;
+          })
+        )}
+        <div className="flex justify-center items-center flex-col justify-around h-2/5 w-1/2 sm:mt-15">
+          <h1 className="text-xl">Let's Play The Game</h1>
+          <div className="select-box">
+            <select
+              className="flex bg-blue-400 w-80 justify-between py-4 px-5 rounded-lg text-white"
+              onChange={event =>
+                props.setCategory([
+                  event.target.value,
+                  event.target.options[event.target.selectedIndex].text
+                ])
+              }
+            >
               <option value="31">Anime</option>
               <option value="19">Matematika</option>
               <option value="15">Games</option>
-          </select>
-        </div>
-        <div className="select-box">
-          <select className="flex bg-blue-400 w-2/3 justify-between py-4 px-5 rounded-lg text-white"
-          onChange={event => props.setDifficult(event.target.value)}
-          >
+            </select>
+          </div>
+          <div className="select-box">
+            <select
+              className="flex bg-blue-400 w-80 justify-between py-4 px-5 rounded-lg text-white"
+              onChange={event => props.setDifficult(event.target.value)}
+            >
               <option value="easy">Easy</option>
               <option value="medium">Medium</option>
               <option value="hard">Hard</option>
-          </select>
+            </select>
+          </div>
+          <button
+            className="bg-blue-500 py-3 px-7 rounded-lg text-white"
+            onClick={props.onClickStart}
+            id="btn-homepage"
+          >
+            Start
+          </button>
         </div>
-        <button className="bg-blue-500 py-4 px-10 rounded-lg text-white" onClick={props.onClickStart} id="btn-homepage">Start</button>
-          </div>
-      </div>
-
-      <div className="leaderBoard flex justify-center items-center bg-blue-400 h-screen w-full">
-        <div className="flex flex-col justify-center items-center h-2/3 w-2/3 rounded-4xl">
-          <h1 className="text-2xl -mt-8">Leaderboard</h1>
-          <div className="flex bg-blue-400 mt-5 w-2/3 justify-between py-4 px-5 rounded-lg text-white">
-            <div className="flex flex-row">
-              <h2 className="pr-3">#1</h2>
-              <h2>Alim Makruf Tri Rachmadi</h2>
-            </div>
-            <h2>score</h2>
-          </div>
-          <div className="flex bg-blue-400 mt-5 w-2/3 justify-between py-4 px-5 rounded-lg text-white">
-            <div className="flex flex-row">
-              <h2 className="pr-3">#1</h2>
-              <h2>Alim Makruf Tri Rachmadi</h2>
-            </div>
-            <h2>score</h2>
-          </div>
-          <div className="flex bg-blue-400 mt-5 w-2/3 justify-between py-4 px-5 rounded-lg text-white">
-            <div className="flex flex-row">
-              <h2 className="pr-3">#1</h2>
-              <h2>Alim Makruf Tri Rachmadi</h2>
-            </div>
-            <h2>score</h2>
-          </div>
-        </div> 
       </div>
     </>
   );

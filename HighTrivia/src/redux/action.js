@@ -77,6 +77,23 @@ const setCategoryDifficult = (category, difficult) => {
   };
 };
 
+const setOptions = options => {
+  return dispatch => {
+    dispatch({
+      type: "SET_OPTIONS",
+      payload: options
+    });
+  };
+};
+
+const resetQuiz = () => {
+  return dispatch => {
+    dispatch({
+      type: "RESET_QUIZ"
+    });
+  };
+};
+
 export {
   setQuiz,
   setResult,
@@ -84,5 +101,7 @@ export {
   setViaHome,
   login,
   fetchUsers,
-  setCategoryDifficult
+  setCategoryDifficult,
+  setOptions,
+  resetQuiz
 };

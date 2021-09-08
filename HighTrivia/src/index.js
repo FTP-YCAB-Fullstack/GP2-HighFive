@@ -9,7 +9,6 @@ import Question from "./pages/Question";
 import { PublicRoute, PrivateRoute } from "./components/Routes";
 import Result from "./pages/Result";
 import Register from "./pages/Register";
-import Leaderboard from "./pages/Leaderboard";
 import ErrorPage from "./components/ErrorPage";
 
 ReactDOM.render(
@@ -23,12 +22,6 @@ ReactDOM.render(
           exact
           path="/register"
           component={Register}
-        />
-        <PublicRoute
-          onlyPublic={false}
-          exact
-          path="/leaderboard"
-          component={Leaderboard}
         />
         <PrivateRoute path="/question/" component={Question} />
         <PrivateRoute exact path="/result" component={Result} />
