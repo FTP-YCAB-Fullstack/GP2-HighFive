@@ -8,9 +8,13 @@ function Register(props) {
 
   const onClickSubmit = event => {
     event.preventDefault();
-    const username = event.target.username.value;
-    const password = event.target.password.value;
-    access.register(username, password, dispatch);
+    const username = event.target.username.value.trim();
+    const password = event.target.password.value.trim();
+    if (username !== "" && password !== "") {
+      access.register(username, password, dispatch);
+    } else {
+      alert("Tolong diisi dengan benar");
+    }
   };
 
   return <FormLogin onClickSubmit={onClickSubmit} from="Register" />;

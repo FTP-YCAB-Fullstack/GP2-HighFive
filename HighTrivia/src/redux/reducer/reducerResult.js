@@ -1,4 +1,6 @@
 const initialState = {
+  category: "",
+  difficult: "",
   answers: [],
   score: 0
 };
@@ -15,8 +17,15 @@ const reducerResult = (state = initialState, action) => {
         100;
       return { ...state, answers, score };
 
+    case "SET_CATEGORY_DIFFICULT":
+      return {
+        ...state,
+        category: action.payload.category,
+        difficult: action.payload.difficult
+      };
+
     case "RESET_RESULT":
-      return { answers: [], score: 0 };
+      return { category: "", difficult: "", answers: [], score: 0 };
 
     default:
       return state;

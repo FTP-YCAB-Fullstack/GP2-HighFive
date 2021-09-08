@@ -37,7 +37,7 @@ function FormLogin(props) {
               Username
             </label>
             <input
-              className="w-full p-2 rounded-md outline-none border-b-2 border-l-2 border-indigo-500 hover:bg-gray-200 placeholder-gray-400"
+              className="w-full p-2 rounded-md outline-none border-b-2 border-l-2 border-indigo-500 hover:bg-gray-200 placeholder-gray-400 text-black"
               type="text"
               name="username"
               placeholder="Username or Email"
@@ -52,7 +52,7 @@ function FormLogin(props) {
               Password
             </label>
             <input
-              className="w-full p-2 rounded-md outline-none border-b-2 border-l-2 border-indigo-500 hover:bg-gray-200 placeholder-gray-400"
+              className="w-full p-2 rounded-md outline-none border-b-2 border-l-2 border-indigo-500 hover:bg-gray-200 placeholder-gray-400 text-black"
               type="password"
               name="password"
               placeholder="Password"
