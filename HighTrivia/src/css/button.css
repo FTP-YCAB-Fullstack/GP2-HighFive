@@ -1,0 +1,24 @@
+#btn-login {
+    background-color: transparent;
+    border: 3px solid white;
+    transition: all .5s ease;
+}
+
+#btn-login:hover {
+    color: black;
+    background-color: #fff;
+    transform: translateY(-3px);
+}
+
+#btn-homepage {
+    background-color: rgba(96, 165, 250, var(--tw-bg-opacity));
+    border: 2px solid #ccc;
+    transition: all .5s ease;
+}
+
+#btn-homepage:hover {
+    color: black;
+    border: 2px solid #fff;
+    background-color: #fff;
+    transform: translateY(-3px);
+}
