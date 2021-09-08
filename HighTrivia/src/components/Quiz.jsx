@@ -18,21 +18,20 @@ function Quiz() {
   const [currentAnswer, setCurrentAnswer] = useState("");
 
   window.onpopstate = () => {
-    // if (window.confirm("Apakah anda yakin?")) {
-    //   history.replace("/");
-    // } else window.history.forward();
-    history.replace("/");
-  };
-
-  const onClickOption = (event, correct_answer) => {
-    if (!isClick) {
-      setCurrentAnswer(event.target.innerText);
-      setClick(true);
-      dispatch(setResult(event.target.innerText === correct_answer));
+    if (history.location.pathname === "/" && isViaHome) {
+      history.replace("/");
     }
   };
 
-  const onClickNext = () => {
+  const onClickOption = event => {
+    if (!isClick) {
+      setCurrentAnswer(event.target.innerText);
+      setClick(true);
+    }
+  };
+
+  const onClickNext = correct_answer => {
+    dispatch(setResult(currentAnswer === correct_answer));
     setCurrentAnswer("");
     setClick(false);
     dispatch(setOptions([]));

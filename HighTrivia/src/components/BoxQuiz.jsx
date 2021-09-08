@@ -4,9 +4,11 @@ function BoxQuiz(props) {
   return (
     <>
       <div className="bg-blue-500 w-screen h-screen flex justify-center items-center">
-        <nav className="flex justify-end p-5 text-white text-xl absolute top-0 z-50 w-full">
+        <nav className="flex justify-between p-5 text-white text-xl absolute top-0 z-50 w-full">
           <p>{props.username}</p>
-          <button onClick={props.onClickNext}>Next</button>
+          <button onClick={() => props.onClickNext(props.quiz.correct_answer)}>
+            Next
+          </button>
         </nav>
 
         <div className="flex flex-col justify-center items-center w-2/3 h-2/3 py-12 bg-blue-400 rounded-2xl">

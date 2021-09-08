@@ -4,7 +4,6 @@ const initialState = {
 };
 
 const reducerQuiz = (state = initialState, action) => {
-  console.log(state);
   switch (action.type) {
     case "SET_QUIZ":
       return { ...state, quiz: [...action.payload] };

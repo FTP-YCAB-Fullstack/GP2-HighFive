@@ -4,7 +4,6 @@ import { Route, Switch, Redirect } from "react-router-dom";
 import Quiz from "../components/Quiz";
 
 function Question() {
-  console.log("question");
   return (
     <div>
       <Switch>

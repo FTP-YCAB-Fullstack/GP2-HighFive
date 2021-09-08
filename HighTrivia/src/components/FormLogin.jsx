@@ -52,7 +52,7 @@ function FormLogin(props) {
               Password
             </label>
             <input
-              className="w-full p-2 rounded-md outline-none border-b-2 border-l-2 border-indigo-500 hover:bg-gray-200 placeholder-gray-400 text-blue"
+              className="w-full p-2 rounded-md outline-none border-b-2 border-l-2 border-indigo-500 hover:bg-gray-200 placeholder-gray-400 text-black"
               type="password"
               name="password"
               placeholder="Password"
@@ -61,7 +61,6 @@ function FormLogin(props) {
 
           <div>
             <button
-              style={{}}
               className="rounded w-1/3 py-2 text-white font-bold shadow-1xl"
               type="submit"
               id="btn-login"
