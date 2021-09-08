@@ -1,7 +1,20 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import Leaderboard from "./LeaderBoard";
+import axios from "axios";
 
 function Homepage(props) {
+  // const [dataLeaderboard, setLeaderboard] = useState(null);
+
+  // useEffect(() => {
+  //   const getData = async () => {
+  //     const { data } = await axios.get(
+  //       "https://613617b98700c50017ef53d2.mockapi.io/hightrivia/api/leaderboard"
+  //     );
+  //     setLeaderboard(data);
+  //   };
+  //   getData();
+  // }, []);
+
   return (
     <>
       <nav className="flex justify-between items-center bg-blue-400 p-3 absolute top-0 z-50 w-full">
