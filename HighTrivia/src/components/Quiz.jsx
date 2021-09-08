@@ -45,6 +45,18 @@ function Quiz() {
     let options = [];
     if (data[0] !== undefined) {
       quiz = data[Number(id)];
+      const parser = new DOMParser();
+      quiz.question = parser.parseFromString(
+        quiz.question,
+        "text/html"
+      ).body.textContent;
+      quiz.incorrect_answers = quiz.incorrect_answers.map(item => {
+        return parser.parseFromString(item, "text/html").body.textContent;
+      });
+      quiz.correct_answer = parser.parseFromString(
+        quiz.correct_answer,
+        "text/html"
+      ).body.textContent;
       options = shuffleArray([...quiz.incorrect_answers, quiz.correct_answer]);
     }
 
