@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import access from "../utils/access";
 import { useDispatch, useSelector } from "react-redux";
 import {
@@ -14,6 +14,7 @@ import "../css/button.css";
 import "../css/font.css";
 import Loading from "../components/Loading";
 import Homepage from "../components/HomePage";
+import axios from "axios";
 
 function Home(props) {
   const isLogin = useSelector(state => state.access.isLogin);
@@ -23,6 +24,25 @@ function Home(props) {
   const dispatch = useDispatch();
   dispatch(resetResult());
   dispatch(resetQuiz());
+
+  const [dataLeaderboard, setLeaderboard] = useState(null);
+
+  useEffect(() => {
+    const getData = async () => {
+      const { data } = await axios.get(
+        "https://613617b98700c50017ef53d2.mockapi.io/hightrivia/api/leaderboard"
+      );
+      setLeaderboard(data);
+    };
+
+    getData();
+    const getingData = setInterval(() => {
+      getData();
+    }, 10000);
+    return () => {
+      clearInterval(getingData);
+    };
+  }, []);
 
   const onClickLoginAndLogout = () => {
     if (isLogin) {
@@ -52,7 +72,7 @@ function Home(props) {
     });
   };
 
-  return isLogin === null ? (
+  return isLogin === null || dataLeaderboard === null ? (
     <Loading />
   ) : (
     <Homepage
@@ -64,7 +84,8 @@ function Home(props) {
         setDifficult,
         onClickLoginAndLogout,
         onClickRegister,
-        onClickStart
+        onClickStart,
+        dataLeaderboard
       }}
     />
   );

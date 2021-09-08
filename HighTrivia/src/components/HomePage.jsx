@@ -1,27 +1,7 @@
-import React, { useEffect, useState } from "react";
+import React from "react";
 import Leaderboard from "./LeaderBoard";
-import axios from "axios";
-import Loading from "./Loading";
 
 function Homepage(props) {
-  const [dataLeaderboard, setLeaderboard] = useState(null);
-
-  useEffect(() => {
-    const getData = async () => {
-      const { data } = await axios.get(
-        "https://613617b98700c50017ef53d2.mockapi.io/hightrivia/api/leaderboard"
-      );
-      setLeaderboard(data);
-    };
-
-    const getingData = setInterval(() => {
-      getData();
-    }, 10000);
-    return () => {
-      clearInterval(getingData);
-    };
-  }, []);
-
   return (
     <>
       <nav className="flex justify-between items-center bg-blue-400 p-3 absolute top-0 z-50 w-full">
@@ -43,10 +23,10 @@ function Homepage(props) {
       </nav>
 
       <div className="flex flex-col sm:flex-row h-screen justify-center items-center">
-        {dataLeaderboard === null ? (
-          <Loading />
+        {props.dataLeaderboard[0] === undefined ? (
+          <Leaderboard category={props.category} difficult={props.difficult} />
         ) : (
-          dataLeaderboard.map((item, index) => {
+          props.dataLeaderboard.map((item, index) => {
             if (item.category === props.category) {
               return (
                 <Leaderboard
