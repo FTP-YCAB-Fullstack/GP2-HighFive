@@ -56,7 +56,9 @@ function Home(props) {
     <Homepage
       {...{
         isLogin,
+        category,
         setCategory,
+        difficult,
         setDifficult,
         onClickLoginAndLogout,
         onClickRegister,
