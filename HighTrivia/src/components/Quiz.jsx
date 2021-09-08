@@ -5,6 +5,7 @@ import { shuffleArray } from "../utils/array";
 import { useHistory, useParams } from "react-router-dom";
 import BoxQuiz from "./BoxQuiz";
 import Loading from "../components/Loading"
+import ErrorPage from "./ErrorPage";
 
 function Quiz() {
   const history = useHistory();
@@ -76,7 +77,7 @@ function Quiz() {
     );
   }
 
-  return <h1>404 not found</h1>;
+  return <ErrorPage></ErrorPage>;
 }
 
 export default Quiz;
