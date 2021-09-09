@@ -19,7 +19,7 @@ function ResultPage(props) {
               <h1 className="text-2xl">Tolong lakukan Quiz terlebih dahulu</h1>
             )}
             <button
-              className="rounded w-1/4 py-4 px-2 bg-indigo-700 hover:bg-indigo-500 text-white mt-12 font-bold text-xl"
+              className="text-sm sm:text-md rounded w-3/4 sm:w-1/4 py-4 px-2 bg-indigo-700 hover:bg-indigo-500 text-white mt-12 font-bold text-xl"
               onClick={props.onClickBackToHome}
             >
               Back To Home

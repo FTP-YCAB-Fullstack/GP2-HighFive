@@ -11,8 +11,8 @@ function BoxQuiz(props) {
           </button>
         </nav>
 
-        <div className="flex flex-col justify-center items-center w-2/3 h-2/3 py-12 bg-blue-400 rounded-2xl">
-          <div className="text-2xl text-center font-mono px-3">
+        <div className="flex flex-col justify-center items-center w-2/3 px-1 py-6 bg-blue-400 rounded-2xl">
+          <div className="text-xl sm:text-2xl  text-center font-mono px-3">
             {props.quiz.question}
           </div>
           <div className="flex flex-wrap h-auto w-4/5 mt-8 justify-center items-center">
@@ -26,7 +26,7 @@ function BoxQuiz(props) {
                       ? { backgroundColor: "rgba(248,113,113,1)" } // red
                       : { backgroundColor: "rgba(37,99,235,1)" } // blue
                   }
-                  className="w-1/3 m-5 rounded-md px-7 py-3"
+                  className="text-sm sm:text-md w-2/3 sm:w-1/3 m-2 m-0 sm:m-5 rounded-md px-7 py-3"
                   onClick={event =>
                     props.onClickOption(event, props.quiz.correct_answer)
                   }
