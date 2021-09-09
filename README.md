@@ -18,4 +18,4 @@
 - Leaderboard
 
 # Link Web Application
-
+[HighTrivia](https://high-trivia.netlify.app)
