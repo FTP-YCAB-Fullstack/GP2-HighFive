@@ -9,7 +9,7 @@ const shuffleArray = array => {
 const sortArrBestThree = (array, newData) => {
   let isAddToArray = false;
   array.forEach((item, index) => {
-    if (newData.score >= item.score) {
+    if (newData.score >= item.score && !isAddToArray) {
       array.splice(index, 0, newData);
       isAddToArray = true;
     }
