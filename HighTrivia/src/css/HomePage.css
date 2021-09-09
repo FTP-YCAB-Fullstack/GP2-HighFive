@@ -26,13 +26,13 @@ select:focus, select:hover{
     padding-top: 10px;
 }
 
-.h-screen {
+/* .h-screen {
     color: #fff;
     background: linear-gradient(-45deg, #858DFA, #9EB5FF);
     background-size: 200% 200%;
     position: relative;
     animation: change 15s ease-in-out infinite;
-}
+} */
 
 @keyframes change {
     0% {
