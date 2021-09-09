@@ -2,21 +2,12 @@ import React, { useEffect } from "react";
 import { useSelector, useDispatch } from "react-redux";
 import { resetResult } from "../redux/action";
 import ResultPage from "../components/ResultPage";
-// import Confetti from "react-confetti"
 import axios from "axios";
 import { sortArrBestThree } from "../utils/array";
 
 function Result(props) {
   const result = useSelector(state => state.result);
   const dispatch = useDispatch();
-  // const [height, setHeight] = useState(null);
-  // const [width, setWidth] = useState(null);
-  // const confettiRef = useRef(null);
-
-  // useEffect(() => {
-  //   setWidth(confettiRef.current.clientWidth)
-  //   setHeight(confettiRef.current.clientHeight)
-  // }, [])
 
   useEffect(() => {
     const sendResult = async () => {

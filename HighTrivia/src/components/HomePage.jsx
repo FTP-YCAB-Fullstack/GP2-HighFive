@@ -2,6 +2,13 @@ import React from "react";
 import Leaderboard from "./LeaderBoard";
 
 function Homepage(props) {
+  const currentLeaderboard = props.dataLeaderboard.filter(item => {
+    if (item.category === props.category) {
+      return true;
+    }
+    return false;
+  });
+
   return (
     <>
       <nav className="flex justify-between items-center bg-blue-400 p-3 absolute top-0 z-50 w-full">
@@ -23,23 +30,17 @@ function Homepage(props) {
       </nav>
 
       <div className="flex flex-col sm:flex-row h-screen justify-center items-center">
-        {props.dataLeaderboard[0] === undefined ? (
-          <Leaderboard category={props.category} difficult={props.difficult} />
-        ) : (
-          props.dataLeaderboard.map((item, index) => {
-            if (item.category === props.category) {
-              return (
-                <Leaderboard
-                  category={props.category}
-                  difficult={props.difficult}
-                  data={item.difficult[props.difficult]}
-                  key={index}
-                />
-              );
+        {
+          <Leaderboard
+            category={props.category}
+            difficult={props.difficult}
+            data={
+              currentLeaderboard[0].difficult === undefined
+                ? undefined
+                : currentLeaderboard[0].difficult[props.difficult]
             }
-            return null;
-          })
-        )}
+          />
+        }
         <div className="flex justify-center items-center flex-col justify-around h-2/5 w-1/2 sm:mt-15">
           <h1 className="text-xl">Let's Play The Game</h1>
           <div className="select-box">

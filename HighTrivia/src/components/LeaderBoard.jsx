@@ -6,7 +6,10 @@ function LeaderBoard(props) {
       <div className="flex flex-col justify-center items-center h-2/3 w-1/2 rounded-4xl">
         <div className="mt-24 sm:mt-0">
           <h1 className="text-2xl text-center -mt-8">Leaderboard</h1>
-          <h2 className="text-xl text-center mt-2">{`( ${props.category} - ${props.difficult} )`}</h2>
+          <h2 className="text-xl text-center mt-2">{`( ${
+            props.category
+          } - ${props.difficult[0].toUpperCase() +
+            props.difficult.slice(1, props.difficult.length)} )`}</h2>
         </div>
         <div className="flex bg-blue-400 mt-8 w-80 sm:w-2/3 justify-between py-4 px-5 rounded-lg text-white">
           <div className="flex flex-row">
