@@ -11,8 +11,8 @@
 }
 
 #btn-homepage {
-    background-color: rgba(96, 165, 250, var(--tw-bg-opacity));
-    border: 2px solid #ccc;
+    background-color: transparent;
+    border: 2px solid white;
     transition: all .5s ease;
 }
 
