@@ -1,6 +1,6 @@
 {
-  "short_name": "React App",
-  "name": "Create React App Sample",
+  "short_name": "High Trivia",
+  "name": "High Trivia",
   "start_url": ".",
   "display": "standalone",
   "theme_color": "#000000",
